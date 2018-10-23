@@ -36,3 +36,4 @@ class ProfileFeedItemSerializer(serializers.ModelSerializer):
         model = models.StatusUpdate
         fields = ('id', 'user_profile', 'status_text', 'created_on')
         extra_kwargs = {'user_profile': {'read_only': True}}
+

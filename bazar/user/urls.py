@@ -11,8 +11,8 @@ router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
 router.register('profile', views.UserProfileViewSet)  # ne treba base_name jer Django rest_framework skuzi
 router.register('login', views.LoginViewSet, base_name='login')
 router.register('feed', views.UserProfileFeedViewSet)
-# router.register('my_products', views.MyProductViewSet, base_name='my_products')
-# router.register('category', views.MyCategoryViewSet, base_name='category')
+router.register('my_products', views.MyProductViewSet, base_name='my_products')
+router.register('category', views.MyCategoryViewSet, base_name='category')
 # router.register('all_products', views.AllProductViewSet, base_name='all_products')
 
 

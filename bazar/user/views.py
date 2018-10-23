@@ -17,6 +17,7 @@ from rest_framework.authentication import TokenAuthentication
 # from api.shop.serializers import ProductSerializer, CategorySerializer
 # # from api.cart.serializers import CartSerializer
 # from api.shop.models import Product, Category
+from .. import serializers
 from . import serializers
 from rest_framework import status
 
@@ -175,27 +176,27 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
         serializer.save(user_profile=self.request.user)
 
 
-# class MyProductViewSet(viewsets.ModelViewSet):
-#     authentication_classes = (TokenAuthentication,)
-#
-#     model = Product
-#     serializer_class = ProductSerializer
-#
-#     def get_queryset(self):
-#         qs = Product.objects.all()
-#         qs = qs.filter(owner=self.request.user)
-#         return qs
-#
-#
-# class MyCategoryViewSet(viewsets.ModelViewSet):
-#     model = Category
-#     serializer_class = CategorySerializer
-#
-#     def get_queryset(self):
-#         qs = Category.objects.all()
-#         # qs = qs.filter(owner=self.request.user)
-#         return qs
-#
+class MyProductViewSet(viewsets.ModelViewSet):
+    authentication_classes = (TokenAuthentication,)
+
+    model = models.Product
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        qs = models.Product.objects.all()
+        # qs = qs.filter(owner=self.request.user)
+        return qs
+
+
+class MyCategoryViewSet(viewsets.ModelViewSet):
+    model = models.Category
+    serializer_class = CategorySerializer
+
+    def get_queryset(self):
+        qs = models.Category.objects.all()
+        # qs = qs.filter(owner=self.request.user)
+        return qs
+
 #
 # class AllProductViewSet(viewsets.ModelViewSet):
 #     model = Product
