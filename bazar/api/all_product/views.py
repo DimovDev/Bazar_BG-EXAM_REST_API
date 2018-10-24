@@ -9,7 +9,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import filters
 
 from all_product.models import Category, Product,Location
-from .serializers import ProductSerializer, CategorySerializer,LocationsSerializer
+from .serializers import ProductSerializer, CategorySerializer,LocationsSerializer,AllProductSerializer
 from rest_framework.views import APIView
 from rest_framework import viewsets
 
@@ -44,7 +44,7 @@ class MyCategoryViewSet(viewsets.ModelViewSet):
 
 class AllProductViewSet(viewsets.ModelViewSet):
     model = Product
-    serializer_class = ProductSerializer
+    serializer_class = AllProductSerializer
 
     def get_queryset(self):
         qs = Product.objects.all()
@@ -52,6 +52,8 @@ class AllProductViewSet(viewsets.ModelViewSet):
         return qs
 
 class MyLocatinsViewSet(viewsets.ModelViewSet):
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'id', 'category__name',)
     model = Location
     serializer_class = LocationsSerializer
 
@@ -217,3 +219,15 @@ def locations_detail(request, pk):
     elif request.method == 'DELETE':
         location.delete()
         return HttpResponse(status=204)
+
+# @csrf_exempt
+# def all_product_list(request, owner):
+#     """
+#     List all code snippets, or create a new snippet.
+#     """
+#     if request.method == 'GET':
+#
+#         alproducts = AllProduct.objects.all()
+#         serializer = AllProductSerializer(alproducts, many=True)
+#         return JsonResponse(serializer.data, safe=False)
+#

@@ -11,6 +11,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
             'created',
             'updated',)
         read_only_fields = ['owner']
+        list_editable = ['price', 'stock', 'available']
 
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
@@ -19,13 +20,18 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'name', 'slug',)
 
 
-class LocationsSerializer(serializers.ModelSerializer):
+class LocationsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Location
         fields = ('id', 'name', 'slug',)
-# class AllProductSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = AllProduct
-#         fields = (
-#             'id', 'name', 'slug', 'image', 'description', 'price', 'stock', 'available', 'created',
-#             'updated',)
+
+
+class AllProductSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Product
+        fields = (
+            'category',    'name', 'slug', 'image', 'description', 'price', 'stock', 'available', 'created',
+            'updated',)
+        list_editable = ['price', 'stock', 'available']
+        read_only_fields = ['id', 'name', 'slug', 'image', 'description', 'price', 'stock', 'available', 'created',
+                            'updated', ]
