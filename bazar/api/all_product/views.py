@@ -6,20 +6,25 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
+from rest_framework import filters
 
-
-from bazar.all_product.models import Category, Product
+from all_product.models import Category, Product
 from .serializers import ProductSerializer, CategorySerializer
 from rest_framework.views import APIView
 from rest_framework import viewsets
 
 
-
 class MyProductViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
-
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'id', 'category__name',)
     model = Product
     serializer_class = ProductSerializer
+
+    def perform_create(self, serializer):
+        """Sets the user profile to the logged in user."""
+
+        serializer.save(owner=self.request.user)
 
     def get_queryset(self):
         qs = Product.objects.all()
@@ -37,14 +42,16 @@ class MyCategoryViewSet(viewsets.ModelViewSet):
         return qs
 
 
-# class AllProductViewSet(viewsets.ModelViewSet):
-#     model = Product
-#     serializer_class = ProductSerializer
-#
-#     def get_queryset(self):
-#         qs = Product.objects.all()
-#         # qs = qs.filter(owner=self.request.user)
-#         return qs
+class AllProductViewSet(viewsets.ModelViewSet):
+    model = Product
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        qs = Product.objects.all()
+        # qs = qs.filter(owner=self.request.user)
+        return qs
+
+
 # # class MyCartViewSet(viewsets.ModelViewSet):
 # #     model = Cart
 # #     serializer_class = CartSerializer
@@ -62,8 +69,8 @@ def product_list(request, owner):
     """
     if request.method == 'GET':
 
-        cart = Product.objects.all()
-        serializer = ProductSerializer(cart, many=True)
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
@@ -151,4 +158,3 @@ def category_detail(request, pk):
     elif request.method == 'DELETE':
         category.delete()
         return HttpResponse(status=204)
-

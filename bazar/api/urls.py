@@ -6,14 +6,15 @@ from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
 
 from user import views
+from api.all_product import views as all_product_views
 router = DefaultRouter()
 router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
 router.register('profile', views.UserProfileViewSet)  # ne treba base_name jer Django rest_framework skuzi
 router.register('login', views.LoginViewSet, base_name='login')
 router.register('feed', views.UserProfileFeedViewSet)
-# router.register('my_products', views.MyProductViewSet, base_name='my_products')
-# router.register('category', views.MyCategoryViewSet, base_name='category')
-# router.register('all_products', views.AllProductViewSet, base_name='all_products')
+router.register('my_products', all_product_views.MyProductViewSet, base_name='my_products')
+router.register('category', all_product_views.MyCategoryViewSet, base_name='category')
+router.register('all_products', all_product_views.AllProductViewSet, base_name='all_products')
 
 
 
