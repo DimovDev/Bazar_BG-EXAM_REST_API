@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'rest_framework.schemas',
     'user',
     'all_product',
+    'api',
+
+
 
 ]
 
