@@ -126,8 +126,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #############################
-#   MY SETTINGS
-##############################
+#   MY SETTINGS             #
+#############################
 AUTH_USER_MODEL = 'user.UserProfile'
 
 REST_FRAMEWORK = {
