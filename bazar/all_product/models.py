@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 from django.db import models
 
-# from bazar import settings
-# from api import user
-# from user.models import UserProfile
+from bazar import settings
+from api import user
+from user.models import UserProfile
 
 
 class Category(models.Model):
@@ -28,21 +28,13 @@ class Category(models.Model):
     #                    args=[self.slug])
 
 
-
-
-
-
-
 class Product(models.Model):
-    # owner = models.ForeignKey( UserModel,  on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, related_name='products'
-                                 )
+    owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='products')
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
-    image = models.ImageField(upload_to='products/%Y/%m/%d',
-                              blank=True)
+    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
-    # 台灣價錢都是整數，所以可以設定 decimal_places=0
     price = models.DecimalField(max_digits=10, decimal_places=0)
     stock = models.PositiveIntegerField()
     available = models.BooleanField(default=True)

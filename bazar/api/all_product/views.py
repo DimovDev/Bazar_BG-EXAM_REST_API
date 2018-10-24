@@ -8,35 +8,35 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 
 
-from .models import Category, Product
+from bazar.all_product.models import Category, Product
 from .serializers import ProductSerializer, CategorySerializer
 from rest_framework.views import APIView
 from rest_framework import viewsets
 
 
 
-# class MyProductViewSet(viewsets.ModelViewSet):
-#     authentication_classes = (TokenAuthentication,)
-#
-#     model = Product
-#     serializer_class = ProductSerializer
-#
-#     def get_queryset(self):
-#         qs = Product.objects.all()
-#         qs = qs.filter(owner=self.request.user)
-#         return qs
-#
-#
-# class MyCategoryViewSet(viewsets.ModelViewSet):
-#     model = Category
-#     serializer_class = CategorySerializer
-#
-#     def get_queryset(self):
-#         qs = Category.objects.all()
-#         # qs = qs.filter(owner=self.request.user)
-#         return qs
-#
-#
+class MyProductViewSet(viewsets.ModelViewSet):
+    authentication_classes = (TokenAuthentication,)
+
+    model = Product
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        qs = Product.objects.all()
+        qs = qs.filter(owner=self.request.user)
+        return qs
+
+
+class MyCategoryViewSet(viewsets.ModelViewSet):
+    model = Category
+    serializer_class = CategorySerializer
+
+    def get_queryset(self):
+        qs = Category.objects.all()
+        # qs = qs.filter(owner=self.request.user)
+        return qs
+
+
 # class AllProductViewSet(viewsets.ModelViewSet):
 #     model = Product
 #     serializer_class = ProductSerializer

@@ -21,7 +21,7 @@ schema_view = get_swagger_view(title='bazar')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include('api.user.urls')),
+    url(r'^api/', include('api.urls')),
     # url(r'^$', schema_view), url(r'^cart/', include('cart.urls', namespace='cart')),
     # url(r'^cart/', include('api.cart.urls', namespace='cart')),
     # url(r'^', include('api.shop.urls', namespace='shop')),
