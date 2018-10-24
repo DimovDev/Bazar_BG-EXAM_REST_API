@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
+from django_pyowm.models import Location
+from rest_framework.reverse import reverse
 
 from bazar import settings
 from api import user
@@ -27,10 +29,27 @@ class Category(models.Model):
     #     return reverse('shop:product_list_by_category',
     #                    args=[self.slug])
 
+class Location(models.Model):
+    name = models.CharField(max_length=200,
+                            db_index=True)
+    slug = models.SlugField(max_length=200,
+                            db_index=True,
+                            unique=True)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'location'
+        verbose_name_plural = 'locations'
+
+    def __str__(self):
+        return self.name
+
+
 
 class Product(models.Model):
     owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, related_name='products')
+    location = models.ForeignKey(Location, related_name='products')
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
@@ -42,8 +61,13 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('id',)
         index_together = (('id', 'slug'),)
 
     def __str__(self):
         return self.name
+
+
+    # def get_absolute_url(self):
+    #     return reverse('shop:product_list_by_category',
+    #                    args=[self.slug])

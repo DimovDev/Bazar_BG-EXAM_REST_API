@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 # Create your views here.
 # Create your views here.
 # -*- coding: utf-8 -*-
@@ -18,14 +16,13 @@ from rest_framework.authentication import TokenAuthentication
 # # from api.cart.serializers import CartSerializer
 # from api.shop.models import Product, Category
 
-from . import serializers
 from rest_framework import status
 
 # Django viewset
 from rest_framework import viewsets
 
-from . import models
-from . import permissions
+from user import models
+from api.user import permissions, serializers
 
 from rest_framework import filters
 

@@ -1,12 +1,13 @@
 from rest_framework import serializers
-from all_product.models import Product, Category
+from all_product.models import Product, Category, Location
 
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
         fields = (
-             'owner', 'id', 'category', 'name', 'slug', 'image', 'description', 'price', 'stock', 'available',
+            'owner', 'id', 'category', 'location', 'name', 'slug', 'image', 'description', 'price', 'stock',
+            'available',
             'created',
             'updated',)
         read_only_fields = ['owner']
@@ -15,8 +16,13 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
-        fields = ( 'id', 'name', 'slug',)
+        fields = ('id', 'name', 'slug',)
 
+
+class LocationsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Location
+        fields = ('id', 'name', 'slug',)
 # class AllProductSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = AllProduct

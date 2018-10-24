@@ -14,8 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
+from django.conf.urls.static import static
 from django.contrib import admin
 from rest_framework_swagger.views import get_swagger_view
+
+from bazar import settings
 
 schema_view = get_swagger_view(title='bazar')
 
@@ -27,4 +30,9 @@ urlpatterns = [
     # url(r'^', include('api.shop.urls', namespace='shop')),
     url('^schema$', schema_view),
     url(r'^$', schema_view),
+    # url(r'^media/', include('media')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

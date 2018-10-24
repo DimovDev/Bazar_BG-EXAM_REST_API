@@ -8,8 +8,8 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework import filters
 
-from all_product.models import Category, Product
-from .serializers import ProductSerializer, CategorySerializer
+from all_product.models import Category, Product,Location
+from .serializers import ProductSerializer, CategorySerializer,LocationsSerializer
 from rest_framework.views import APIView
 from rest_framework import viewsets
 
@@ -50,6 +50,16 @@ class AllProductViewSet(viewsets.ModelViewSet):
         qs = Product.objects.all()
         # qs = qs.filter(owner=self.request.user)
         return qs
+
+class MyLocatinsViewSet(viewsets.ModelViewSet):
+    model = Location
+    serializer_class = LocationsSerializer
+
+    def get_queryset(self):
+        qs = Location.objects.all()
+        # qs = qs.filter(owner=self.request.user)
+        return qs
+
 
 
 # # class MyCartViewSet(viewsets.ModelViewSet):
@@ -157,4 +167,53 @@ def category_detail(request, pk):
 
     elif request.method == 'DELETE':
         category.delete()
+        return HttpResponse(status=204)
+
+
+@csrf_exempt
+def location_list(request):
+    """
+    List all code snippets, or create a new snippet.
+    """
+    if request.method == 'GET':
+
+        location = Location.objects.all()
+        serializer = LocationsSerializer(location, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = LocationsSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
+def locations_detail(request, pk):
+    """
+    Retrieve, update or delete a code snippet.
+    """
+
+    try:
+        location = Location.get(pk=pk)
+
+    except Location.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = LocationsSerializer(location)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = LocationsSerializer(location, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        location.delete()
         return HttpResponse(status=204)
