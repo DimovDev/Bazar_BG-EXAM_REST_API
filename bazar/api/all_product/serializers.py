@@ -19,7 +19,7 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'name', 'slug',)
 
 
-class LocationsSerializer(serializers.HyperlinkedModelSerializer):
+class LocationsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         fields = ('id', 'name', 'slug',)

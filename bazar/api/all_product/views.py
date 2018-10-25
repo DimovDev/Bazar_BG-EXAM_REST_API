@@ -18,6 +18,7 @@ from api.all_product import permissions, serializers
 
 class MyProductViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.Update, IsAuthenticated,)
     model = Product
     serializer_class = ProductSerializer
     filter_backends = (filters.SearchFilter,)
