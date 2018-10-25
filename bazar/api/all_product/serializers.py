@@ -34,4 +34,4 @@ class AllProductSerializer(serializers.HyperlinkedModelSerializer):
             'updated',)
         list_editable = ['price', 'stock', 'available']
         read_only_fields = ['id', 'name', 'slug', 'image', 'description', 'price', 'stock', 'available', 'created',
-                            'updated', ]
+                            'updated','category' ]
