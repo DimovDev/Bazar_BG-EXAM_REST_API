@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
+from django.forms import forms
 from django_pyowm.models import Location
 from rest_framework.reverse import reverse
 
@@ -29,6 +30,7 @@ class Category(models.Model):
     #     return reverse('shop:product_list_by_category',
     #                    args=[self.slug])
 
+
 class Location(models.Model):
     name = models.CharField(max_length=200,
                             db_index=True)
@@ -45,6 +47,15 @@ class Location(models.Model):
         return self.name
 
 
+from django.core.validators import RegexValidator
+
+
+class PhoneModel(models.Model):
+    ...
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
+                                 message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)  # validators should be a list
+
 
 class Product(models.Model):
     owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
@@ -59,6 +70,7 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    phone_number = models.CharField(max_length=17, blank=True)
 
     class Meta:
         ordering = ('id',)
@@ -66,7 +78,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
 
     # def get_absolute_url(self):
     #     return reverse('shop:product_list_by_category',
@@ -92,4 +103,3 @@ class Product(models.Model):
 #
 #     def __str__(self):
 #         return self.name
-

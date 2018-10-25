@@ -12,6 +12,7 @@ class Update(permissions.BasePermission):
 
         return obj.id == request.user.id
 
+
 # class PostOwnStatus(permissions.BasePermission):
 #     """Allow users to update their own status."""
 #

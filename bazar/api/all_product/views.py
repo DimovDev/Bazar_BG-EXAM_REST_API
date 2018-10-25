@@ -7,19 +7,23 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework import filters
-
-from all_product.models import Category, Product,Location
-from .serializers import ProductSerializer, CategorySerializer,LocationsSerializer,AllProductSerializer
+from rest_framework import status
+from all_product.models import Category, Product, Location
+from .serializers import ProductSerializer, CategorySerializer, LocationsSerializer, AllProductSerializer
 from rest_framework.views import APIView
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from api.all_product import permissions, serializers
 
 
 class MyProductViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
-    filter_backends = (filters.SearchFilter,)
-    search_fields = ('name', 'id', 'category__name',)
     model = Product
     serializer_class = ProductSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'id', 'category__name',)
+
+    # permission_classes = (permissions.Update,IsAuthenticated,)
 
     def perform_create(self, serializer):
         """Sets the user profile to the logged in user."""
@@ -33,35 +37,40 @@ class MyProductViewSet(viewsets.ModelViewSet):
 
 
 class MyCategoryViewSet(viewsets.ModelViewSet):
+    permission_classes = (permissions.Update, IsAuthenticated,)
+
     model = Category
     serializer_class = CategorySerializer
 
     def get_queryset(self):
+
         qs = Category.objects.all()
-        # qs = qs.filter(owner=self.request.user)
+    # qs = qs.filter(owner=self.request.user)
         return qs
 
 
-class AllProductViewSet(viewsets.ModelViewSet):
+class AllProductViewSet(viewsets.ReadOnlyModelViewSet):
     model = Product
     serializer_class = AllProductSerializer
-
+    # permission_classes = (permissions.Update, IsAuthenticated)
     def get_queryset(self):
         qs = Product.objects.all()
         # qs = qs.filter(owner=self.request.user)
         return qs
 
-class MyLocatinsViewSet(viewsets.ModelViewSet):
-    filter_backends = (filters.SearchFilter,)
-    search_fields = ('name', 'id', 'category__name',)
+
+class MyLocationsViewSet(viewsets.ModelViewSet):
     model = Location
     serializer_class = LocationsSerializer
+
+    permission_classes = (permissions.Update, IsAuthenticated)
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'id', 'category__name',)
 
     def get_queryset(self):
         qs = Location.objects.all()
         # qs = qs.filter(owner=self.request.user)
         return qs
-
 
 
 # # class MyCartViewSet(viewsets.ModelViewSet):

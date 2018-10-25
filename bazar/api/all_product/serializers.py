@@ -6,12 +6,11 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
         fields = (
-            'owner', 'id', 'category', 'location', 'name', 'slug', 'image', 'description', 'price', 'stock',
+            'owner', 'id', 'category', 'location', 'phone_number', 'name', 'image', 'description', 'price', 'stock',
             'available',
             'created',
             'updated',)
         read_only_fields = ['owner']
-        list_editable = ['price', 'stock', 'available']
 
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
@@ -30,8 +29,8 @@ class AllProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
         fields = (
-            'category',    'name', 'slug', 'image', 'description', 'price', 'stock', 'available', 'created',
-            'updated',)
+        'id', 'owner', 'location', 'phone_number', 'category', 'name', 'image', 'description', 'price', 'stock',
+        'available',
+        'created', 'updated')
         list_editable = ['price', 'stock', 'available']
-        read_only_fields = ['id', 'name', 'slug', 'image', 'description', 'price', 'stock', 'available', 'created',
-                            'updated','category' ]
+        read_only_fields = [ 'owner',]

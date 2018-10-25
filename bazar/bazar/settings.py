@@ -126,7 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #############################
-#   MY SETTINGS             #
+#   MY SETTINGS   OrReadOnly          #
 #############################
 AUTH_USER_MODEL = 'user.UserProfile'
 

@@ -15,7 +15,7 @@ router.register('feed', views.UserProfileFeedViewSet)
 router.register('my_products', all_product_views.MyProductViewSet, base_name='my_products')
 router.register('category', all_product_views.MyCategoryViewSet, base_name='category')
 router.register('all_products', all_product_views.AllProductViewSet, base_name='all_products')
-router.register('location', all_product_views.MyLocatinsViewSet, base_name='location')
+router.register('location', all_product_views.MyLocationsViewSet, base_name='location')
 
 
 
