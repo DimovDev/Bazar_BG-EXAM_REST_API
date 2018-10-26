@@ -39,10 +39,10 @@ class MyProductViewSet(viewsets.ModelViewSet):
 
 class MyCategoryViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.Update, IsAuthenticated,)
-
     model = Category
     serializer_class = CategorySerializer
-
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'id', 'category__name',)
     def get_queryset(self):
 
         qs = Category.objects.all()
