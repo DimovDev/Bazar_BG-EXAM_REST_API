@@ -37,3 +37,25 @@ class ProfileFeedItemSerializer(serializers.ModelSerializer):
         fields = ('id', 'user_profile', 'status_text', 'created_on')
         extra_kwargs = {'user_profile': {'read_only': True}}
 
+class ProfileMessage(serializers.HyperlinkedModelSerializer):
+    """A serializer for profile feed items."""
+
+    class Meta:
+        model = models.Message
+        fields = ( 'sender', 'recipient', 'message', 'date_sent')
+        # extra_kwargs = {'sender': {'read_only': True}, 'date_sent': {'read_only': True}}
+        read_only_fields = ['sender']
+
+        def create(self, ):
+            """Create and return a new user."""
+
+            message = models.Message(
+            #     sender=validated_data['sender'],
+            #     recipient=validated_data['validated_data']
+            )
+
+            # user.set_password(validated_data['password'])
+            # message.save()
+            message.save(using=self._db)
+            return message
+# using=self._db

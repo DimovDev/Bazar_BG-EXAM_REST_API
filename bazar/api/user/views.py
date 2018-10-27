@@ -28,10 +28,12 @@ from rest_framework import filters
 
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.permissions import IsAuthenticated
-
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 # Django rest_framework API response
+from user.models import UserProfile, Message
+
+
 class HelloApiView(APIView):
     """Test API View."""
 
@@ -173,41 +175,40 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
         serializer.save(user_profile=self.request.user)
 
 
-# class MyProductViewSet(viewsets.ModelViewSet):
-#     authentication_classes = (TokenAuthentication,)
-#
-#     model = models.Product
-#     serializer_class = ProductSerializer
-#
-#     def get_queryset(self):
-#         qs = models.Product.objects.all()
-#         # qs = qs.filter(owner=self.request.user)
-#         return qs
-#
-#
-# class MyCategoryViewSet(viewsets.ModelViewSet):
-#     model = models.Category
-#     serializer_class = CategorySerializer
-#
-#     def get_queryset(self):
-#         qs = models.Category.objects.all()
-#         # qs = qs.filter(owner=self.request.user)
-#         return qs
-#
-# #
-# class AllProductViewSet(viewsets.ModelViewSet):
-#     model = Product
-#     serializer_class = ProductSerializer
-#
-#     def get_queryset(self):
-#         qs = AllProduct.objects.all()
-#         # qs = qs.filter(owner=self.request.user)
-#         return qs
-# # class MyCartViewSet(viewsets.ModelViewSet):
-# #     model = Cart
-# #     serializer_class = CartSerializer
-# #
-# #     def get_queryset(self):
-# #         qs = Cart.objects.all()
-# #         # qs = qs.filter(owner=self.request.user)
-# #         return qs
+class SentMessagesViewSet(viewsets.ModelViewSet):
+    """Handles creating, reading and updating profile feed items."""
+
+    authentication_classes = (TokenAuthentication,)
+    serializer_class = serializers.ProfileMessage
+    queryset = models.Message.objects.all()
+    permission_classes = (permissions.ReadMessage, IsAuthenticated)
+
+    def get_queryset(self):
+        qs = Message.objects.all()
+        qs = qs.filter(sender=self.request.user)
+        return qs
+
+    def perform_create(self, serializer):
+        """Sets the user profile to the logged in user."""
+
+        serializer.save(sender=self.request.user)
+
+class ReceivedMessagesViewSet(viewsets.ReadOnlyModelViewSet):
+    authentication_classes = (TokenAuthentication,)
+    serializer_class = serializers.ProfileMessage
+    queryset = models.Message.objects.all()
+    permission_classes = (permissions.ReadMessage, IsAuthenticated)
+
+    def get_queryset(self):
+        qs = Message.objects.all()
+        qs = qs.filter(recipient=self.request.user)
+        return qs
+
+
+class LogoutApiView(APIView):
+    queryset = UserProfile.objects.all()
+
+    def get(self, request, format=None):
+        # simply delete the token to force a login
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
