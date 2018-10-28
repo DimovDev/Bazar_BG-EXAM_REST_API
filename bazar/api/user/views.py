@@ -7,14 +7,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from rest_framework.authentication import TokenAuthentication
-# POST metoda = uključuje serializers
-# from api.all_shop.models import AllProduct
-# from api.all_shop.serializers import AllProductSerializer
-# from api.cart.cart import Cart
-# # from api.cart.serializers import CartSerializer
-# from api.shop.serializers import ProductSerializer, CategorySerializer
-# # from api.cart.serializers import CartSerializer
-# from api.shop.models import Product, Category
 
 from rest_framework import status
 
@@ -144,10 +136,10 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
     serializer_class = serializers.UserProfileSerializer
     queryset = models.UserProfile.objects.all()
-    authentication_classes = (TokenAuthentication,)  # ostavi zarez jer varijbla mora biti vrste tuple
-    permission_classes = (permissions.UpdateOwnProfile,)  # ostavi zarez
-    filter_backends = (filters.SearchFilter,)  # ostavi zarez
-    search_fields = ('name', 'email',)  # ostavi zarez
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.UpdateOwnProfile,)
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'email',)
 
 
 class LoginViewSet(viewsets.ViewSet):
@@ -176,7 +168,7 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
 
 
 class SentMessagesViewSet(viewsets.ModelViewSet):
-    """Handles creating, reading and updating profile feed items."""
+    """Handles creating, reading and updating messages."""
 
     authentication_classes = (TokenAuthentication,)
     serializer_class = serializers.ProfileMessage
@@ -188,10 +180,9 @@ class SentMessagesViewSet(viewsets.ModelViewSet):
         qs = qs.filter(sender=self.request.user)
         return qs
 
-    def perform_create(self, serializer):
-        """Sets the user profile to the logged in user."""
+    # def perform_create(self, serializer):
+    #     serializer.save(sender=self.request.user)
 
-        serializer.save(sender=self.request.user)
 
 class ReceivedMessagesViewSet(viewsets.ReadOnlyModelViewSet):
     authentication_classes = (TokenAuthentication,)
@@ -203,6 +194,9 @@ class ReceivedMessagesViewSet(viewsets.ReadOnlyModelViewSet):
         qs = Message.objects.all()
         qs = qs.filter(recipient=self.request.user)
         return qs
+
+    # def perform_create(self, serializer):
+    #     serializer.save(recipient=self.request.user)
 
 
 class LogoutApiView(APIView):

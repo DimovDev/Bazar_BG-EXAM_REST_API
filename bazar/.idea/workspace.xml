@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="14943139-bea3-4944-a738-11ee3ebdd23d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/all_product/migrations/0007_auto_20181027_2310.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all_product/migrations/0008_auto_20181027_2323.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/2018/10/28/karuca.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/all_product/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/all_product/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/all_product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/all_product/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/all_product/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/all_product/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/all_product/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/all_product/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/all_product/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/all_product/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/user/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/user/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/user/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazar/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bazar/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazar/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bazar/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="703905235">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.2" value="3" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="SCHEMA:main" value="1" />
+          <entry key="all_product_location" value="1" />
+          <entry key="authtoken_token" value="1" />
+          <entry key="django_content_type" value="1" />
+          <entry key="py" value="46" />
+          <entry key="user_message" value="1" />
+          <entry key="user_userprofile" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Database Element" value="5" />
+          <entry key="Python" value="46" />
+          <entry key="UML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="14" />
+          <entry key="py" value="422" />
+          <entry key="txt" value="56" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="70" />
+          <entry key="Python" value="422" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/all_product/permissions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/all_product/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="20" column="65" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/all_product/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9">
+              <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/all_product/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <marker date="1540757708725" expanded="true" signature="153:158" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/user/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="695">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/user/permissions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/user/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="198" column="54" selection-start-line="197" selection-start-column="6" selection-end-line="198" selection-end-column="54" />
+              <folding>
+                <element signature="e#119#159#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mesaage</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/all_product/models.py" />
+        <option value="$PROJECT_DIR$/all_product/admin.py" />
+        <option value="$PROJECT_DIR$/api/all_product/permissions.py" />
+        <option value="$PROJECT_DIR$/api/user/permissions.py" />
+        <option value="$PROJECT_DIR$/bazar/settings.py" />
+        <option value="$PROJECT_DIR$/api/urls.py" />
+        <option value="$PROJECT_DIR$/api/user/views.py" />
+        <option value="$PROJECT_DIR$/api/user/serializers.py" />
+        <option value="$PROJECT_DIR$/api/all_product/serializers.py" />
+        <option value="$PROJECT_DIR$/api/all_product/views.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-1928" />
+    <option name="y" value="-146" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+              <item name="all_product" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+              <item name="all_product" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="all_product" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bazar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bazar" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Python\Django SoftUni\Bazar-BG-Extend\Bazar_BG-EXAM_REST_API\bazar\media" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14943139-bea3-4944-a738-11ee3ebdd23d" name="Default Changelist" comment="" />
+      <created>1540530187664</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1540530187664</updated>
+    </task>
+    <task id="LOCAL-00001" summary="add message functionality">
+      <created>1540661407025</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540661407025</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1928" y="-146" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.075159915" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Console" order="7" weight="0.329718" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.18004338" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.098614074" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add message functionality" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;bazar/api/user/views.py&#10;#&#9;bazar/db.sqlite3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;bazar/api/user/views.py&#10;#&#9;bazar/db.sqlite3" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="das://f3b5ed49-ecfa-4309-b59e-98146bc4b539/schema/main/table/all_product_location" />
+    <entry file="das://f3b5ed49-ecfa-4309-b59e-98146bc4b539/schema/main/table/user_message" />
+    <entry file="das://f3b5ed49-ecfa-4309-b59e-98146bc4b539/schema/main/table/django_content_type" />
+    <entry file="file://$PROJECT_DIR$/user/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://f3b5ed49-ecfa-4309-b59e-98146bc4b539/schema/main/table/user_userprofile" />
+    <entry file="das://f3b5ed49-ecfa-4309-b59e-98146bc4b539/schema/main/table/authtoken_token" />
+    <entry file="file://$PROJECT_DIR$/bazar/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="73" lean-forward="true" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all_product/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all_product/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bazar/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2380">
+          <caret line="140" column="18" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#17#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1124">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="uml://DATABASE/f3b5ed49-ecfa-4309-b59e-98146bc4b539.SCHEMA:main">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>f3b5ed49-ecfa-4309-b59e-98146bc4b539.SCHEMA:main</OriginalElement>
+          <nodes>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.django_content_type</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.user_message</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.user_profilefeeditem</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.all_product_category</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.user_userprofile_groups</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.django_session</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.auth_group_permissions</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.user_statusupdate</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.user_userprofile</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.all_product_product</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.sqlite_sequence</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.sqlite_master</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.auth_group</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.django_admin_log</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.authtoken_token</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.auth_permission</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.all_product_location</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.user_userprofile_user_permissions</node>
+            <node x="" y="">f3b5ed49-ecfa-4309-b59e-98146bc4b539.TABLE:main.django_migrations</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.7480959833072509" x="695.1902586988355" y="252.81444808590754" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/all_product/permissions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all_product/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/all_product/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <marker date="1540757708725" expanded="true" signature="153:158" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/user/permissions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/user/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="198" column="54" selection-start-line="197" selection-start-column="6" selection-end-line="198" selection-end-column="54" />
+          <folding>
+            <element signature="e#119#159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/all_product/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="20" column="65" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

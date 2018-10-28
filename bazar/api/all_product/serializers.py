@@ -2,7 +2,7 @@ from rest_framework import serializers
 from all_product.models import Product, Category, Location
 
 
-class ProductSerializer(serializers.HyperlinkedModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = (
@@ -13,24 +13,23 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         read_only_fields = ['owner']
 
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('id', 'name', 'slug',)
+        fields = ('id', 'name', 'image')
 
 
 class LocationsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = ('id', 'name', 'slug',)
+        fields = ('id', 'name','image')
 
 
-class AllProductSerializer(serializers.HyperlinkedModelSerializer):
+class AllProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = (
-        'id', 'owner', 'location', 'phone_number', 'category', 'name', 'image', 'description', 'price', 'stock',
-        'available',
-        'created', 'updated')
-        list_editable = ['price', 'stock', 'available']
-        read_only_fields = [ 'owner',]
+            'id', 'owner', 'location', 'phone_number', 'category', 'name', 'image', 'description', 'price', 'stock',
+            'available',
+            'created', 'updated')
+        read_only_fields = ['owner', ]

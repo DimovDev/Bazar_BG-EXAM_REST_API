@@ -8,6 +8,7 @@ class HelloSerializer(serializers.Serializer):
 
     name = serializers.CharField(max_length=10)
 
+
 class UserProfileSerializer(serializers.ModelSerializer):
     """A serializer for our user profile objects."""
 
@@ -21,13 +22,14 @@ class UserProfileSerializer(serializers.ModelSerializer):
         """Create and return a new user."""
 
         user = models.UserProfile(
-            email = validated_data['email'],
-            name = validated_data['name']
+            email=validated_data['email'],
+            name=validated_data['name']
         )
 
         user.set_password(validated_data['password'])
         user.save()
         return user
+
 
 class ProfileFeedItemSerializer(serializers.ModelSerializer):
     """A serializer for profile feed items."""
@@ -37,21 +39,22 @@ class ProfileFeedItemSerializer(serializers.ModelSerializer):
         fields = ('id', 'user_profile', 'status_text', 'created_on')
         extra_kwargs = {'user_profile': {'read_only': True}}
 
-class ProfileMessage(serializers.HyperlinkedModelSerializer):
+
+class ProfileMessage(serializers.ModelSerializer):
     """A serializer for profile feed items."""
 
     class Meta:
         model = models.Message
-        fields = ( 'sender', 'recipient', 'message', 'date_sent')
+        fields = ('id', 'sender', 'recipient', 'message', 'date_sent')
         # extra_kwargs = {'sender': {'read_only': True}, 'date_sent': {'read_only': True}}
         read_only_fields = ['sender']
 
         def create(self, ):
-            """Create and return a new user."""
+            """Create and return a new message."""
 
             message = models.Message(
-            #     sender=validated_data['sender'],
-            #     recipient=validated_data['validated_data']
+                #     sender=validated_data['sender'],
+                #     recipient=validated_data['validated_data']
             )
 
             # user.set_password(validated_data['password'])

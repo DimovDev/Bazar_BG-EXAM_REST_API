@@ -14,9 +14,7 @@ from user.models import UserProfile
 class Category(models.Model):
     name = models.CharField(max_length=200,
                             db_index=True)
-    slug = models.SlugField(max_length=200,
-                            db_index=True,
-                            unique=True)
+    image = models.ImageField(upload_to='category/%Y/%m/%d', blank=True)
 
     class Meta:
         ordering = ('name',)
@@ -34,9 +32,7 @@ class Category(models.Model):
 class Location(models.Model):
     name = models.CharField(max_length=200,
                             db_index=True)
-    slug = models.SlugField(max_length=200,
-                            db_index=True,
-                            unique=True)
+    image = models.ImageField(upload_to='location/%Y/%m/%d', blank=True)
 
     class Meta:
         ordering = ('name',)

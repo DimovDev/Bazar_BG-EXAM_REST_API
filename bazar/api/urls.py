@@ -11,7 +11,7 @@ from api.user.views import LogoutApiView
 
 router = DefaultRouter()
 router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
-router.register('profile', views.UserProfileViewSet)  # ne treba base_name jer Django rest_framework skuzi
+router.register('profile', views.UserProfileViewSet,base_name='signup')
 router.register('login', views.LoginViewSet, base_name='login')
 # router.register('logout', views.logout, base_name='logout')
 router.register('feed', views.UserProfileFeedViewSet)

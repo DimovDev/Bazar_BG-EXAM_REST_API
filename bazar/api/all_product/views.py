@@ -18,7 +18,7 @@ from api.all_product import permissions, serializers
 
 class MyProductViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (permissions.Update, IsAuthenticated,)
+    # permission_classes = (permissions.Update, IsAuthenticated,)
     model = Product
     serializer_class = ProductSerializer
     filter_backends = (filters.SearchFilter,)
@@ -38,21 +38,23 @@ class MyProductViewSet(viewsets.ModelViewSet):
 
 
 class MyCategoryViewSet(viewsets.ModelViewSet):
-    permission_classes = (permissions.Update, IsAuthenticated,)
-
+    permission_classes = (permissions.Update, IsAdminUser,)
     model = Category
     serializer_class = CategorySerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'id', 'category__name',)
 
     def get_queryset(self):
-
         qs = Category.objects.all()
-    # qs = qs.filter(owner=self.request.user)
+        # qs = qs.filter(owner=self.request.user)
         return qs
 
 
 class AllProductViewSet(viewsets.ReadOnlyModelViewSet):
     model = Product
     serializer_class = AllProductSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('name', 'id', 'category__name',)
     # permission_classes = (permissions.Update, IsAuthenticated)
     def get_queryset(self):
         qs = Product.objects.all()
@@ -61,12 +63,11 @@ class AllProductViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class MyLocationsViewSet(viewsets.ModelViewSet):
+    permission_classes = (permissions.Update, IsAdminUser)
     model = Location
     serializer_class = LocationsSerializer
-
-    permission_classes = (permissions.Update, IsAuthenticated)
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('name', 'id', 'category__name',)
+    search_fields = ('name', 'id', 'location__name',)
 
     def get_queryset(self):
         qs = Location.objects.all()
@@ -136,7 +137,7 @@ def product_detail(request, pk):
 @csrf_exempt
 def category_list(request):
     """
-    List all code snippets, or create a new snippet.
+    List all code category, or create a new category.
     """
     if request.method == 'GET':
 
@@ -156,7 +157,7 @@ def category_list(request):
 @csrf_exempt
 def category_detail(request, pk):
     """
-    Retrieve, update or delete a code snippet.
+    Retrieve, update or delete a code category.
     """
 
     try:
@@ -171,7 +172,7 @@ def category_detail(request, pk):
 
     elif request.method == 'PUT':
         data = JSONParser().parse(request)
-        serializer = CategorySerializer(category, data=data)
+        serializer = CategorySerializer(data, data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data)
@@ -185,7 +186,7 @@ def category_detail(request, pk):
 @csrf_exempt
 def location_list(request):
     """
-    List all code snippets, or create a new snippet.
+    List all code location, or create a new location.
     """
     if request.method == 'GET':
 
@@ -205,7 +206,7 @@ def location_list(request):
 @csrf_exempt
 def locations_detail(request, pk):
     """
-    Retrieve, update or delete a code snippet.
+    Retrieve, update or delete a locations.
     """
 
     try:
@@ -229,15 +230,3 @@ def locations_detail(request, pk):
     elif request.method == 'DELETE':
         location.delete()
         return HttpResponse(status=204)
-
-# @csrf_exempt
-# def all_product_list(request, owner):
-#     """
-#     List all code snippets, or create a new snippet.
-#     """
-#     if request.method == 'GET':
-#
-#         alproducts = AllProduct.objects.all()
-#         serializer = AllProductSerializer(alproducts, many=True)
-#         return JsonResponse(serializer.data, safe=False)
-#

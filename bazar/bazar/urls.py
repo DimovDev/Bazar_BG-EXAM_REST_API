@@ -16,20 +16,21 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+from rest_framework import schemas
 from rest_framework_swagger.views import get_swagger_view
 
 from bazar import settings
 
-schema_view = get_swagger_view(title='bazar')
-
+swagger_view = get_swagger_view(title='bazar')
+schema_view= schemas.get_schema_view(title='bazar')
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('api.urls')),
     # url(r'^$', schema_view), url(r'^cart/', include('cart.urls', namespace='cart')),
     # url(r'^cart/', include('api.cart.urls', namespace='cart')),
     # url(r'^', include('api.shop.urls', namespace='shop')),
-    url('^schema$', schema_view),
-    url(r'^$', schema_view),
+    url(r'^$', swagger_view),
+    url(r'^schema', schema_view),
     # url(r'^media/', include('media')),
 ]
 
